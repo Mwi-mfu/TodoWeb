@@ -1,0 +1,19 @@
+
+<div id="Instruction">
+    <p>ADD A TASK</p>
+</div>
+<div class="actionButtonBanner">
+
+  <input type="text" id="taskToAdd" class="textField" placeholder="e.g. Wash car">
+  <button class="actionButton" (click)="addTask()">Add task</button>
+
+</div>
+<hr id="line">
+<div class="actionButtonBanner" >
+  <h3>TASKS</h3>
+</div>
+<div>
+  <task-card class="component" 
+  *ngFor="let task of taskList"
+  [currentTask]="taskData" ></task-card>
+</div>

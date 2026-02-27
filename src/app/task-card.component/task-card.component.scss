@@ -1,0 +1,44 @@
+.taskCard {
+    display: flex;
+    height: 70px;
+    border: black 1px solid;
+    border-radius: 25px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    
+}
+
+#checkbox, #deleteSelection {
+    height: 100%;
+    width: 15%;
+    justify-content: center;
+}
+
+#deleteSelection {
+    margin-right: 30px;
+}
+
+#cardBody {
+    width: 70%;
+}
+
+#isDone {
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+}
+
+#deleteTask {
+    height: 30px;
+    border: none;
+    color: aliceblue;
+    background-color: red;
+    border-radius: 15px;
+}

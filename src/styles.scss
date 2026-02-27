@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Ensure the browser containers take up 100% of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the Angular entry point also expands */
+app-root {
+  display: block; /* Custom tags are 'inline' by default; change to block */
+  height: 100%;
+  width: 100%;
+}
