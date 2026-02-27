@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { TaskCardComponent } from '../task-card.component/task-card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-view.component',
-  imports: [],
+  imports: [CommonModule, TaskCardComponent],
   templateUrl: './task-view.component.html',
   styleUrl: './task-view.component.scss',
 })
 export class TaskViewComponent {
 
-  private taskList: any[];
+  public taskList: any[];
 
   constructor (private storage: StorageService) {
     this.taskList = storage.getTodosInWorkingForm();
@@ -21,10 +22,17 @@ export class TaskViewComponent {
     const nameHtmlElement = document.getElementById('taskToAdd') as HTMLInputElement;
     const name = nameHtmlElement.value.trim();
 
-    this.storage.addToList(name);
+    if (name) {
+      this.storage.addToList(name);
+    }
   }
 
-  handleDelete(idToDelete: number) {
+  handleDelete(idToDelete: any) {
     this.taskList = this.taskList.filter(task => task.id !== idToDelete);
+    this.storage.deleteTask(idToDelete);
+  }
+
+  trackByTaskId(index: number, item: any): number {
+    return item.id;
   }
 }

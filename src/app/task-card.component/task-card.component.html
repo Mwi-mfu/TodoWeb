@@ -1,9 +1,14 @@
 <div class="taskCard">
     <div class="box" id="checkbox">
-        <input type="checkbox" id="isDone">
+        <input type="checkbox" [(ngModel)]="taskData.isComplete" (click)="updateDb()" id="isDone">
     </div>
-    <div class="box" id="cardBody">
-        <h1 id="taskName">Task 1</h1>
+    <div class="nameBox" id="cardBody">
+        <div id="Title">
+            <h1 id="taskName">{{ taskData.name }}</h1>
+        </div>
+        <div id="Status">
+            <p>Status: {{ taskData.isComplete ? 'Done' : 'Pending' }}</p>
+        </div>
     </div>
     <div class="box" id="deleteSelection">
         <button id="deleteTask" (click)="deleteButton()">Delete</button>

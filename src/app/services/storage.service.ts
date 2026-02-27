@@ -58,7 +58,7 @@ export class StorageService {
 
   public updateStatus (id: string) {
     const indexOfInterest = this.todosInWorkingForm.findIndex(task => task.id === id)
-    if (!(indexOfInterest < 0)) {
+    if (indexOfInterest >= 0) {
       this.todosInWorkingForm[indexOfInterest].isComplete = !this.todosInWorkingForm[indexOfInterest].isComplete;
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.todosInWorkingForm));
     }
